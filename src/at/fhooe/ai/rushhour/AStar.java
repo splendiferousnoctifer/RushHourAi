@@ -25,13 +25,7 @@ public class AStar {
 	Queue<SortableNode> openList = new PriorityQueue<SortableNode>(20, new Comparator<SortableNode>() {
 		// override compare method
 		public int compare(SortableNode i, SortableNode j) {
-			if (i.getCosts() > j.getCosts()) {
-				return 1;
-			} else if (i.getCosts() < j.getCosts()) {
-				return -1;
-			} else {
-				return 0;
-			}
+			return Integer.compare(i.getCosts(), j.getCosts());
 		}
 
 	});
