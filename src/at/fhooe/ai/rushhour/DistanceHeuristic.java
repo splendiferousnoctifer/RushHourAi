@@ -28,7 +28,7 @@ public class DistanceHeuristic implements Heuristic {
      */
     public int getValue(State state) {
     	int ourEnd = this.variablePosition = state.getVariablePosition(0) + carSize;
-    	return 6-ourEnd;
+    	return puzzle.getGridSize()-ourEnd;
     }
 
 }
