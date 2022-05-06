@@ -1,29 +1,27 @@
 package at.fhooe.ai.rushhour;
 
-public class SortableNode extends Node  implements Comparable<SortableNode> {
+import java.util.Objects;
+
+public class SortableNode extends Node {
 	
-	private int costs;
+	private int totalCosts;
 
-	public SortableNode(Node node, int costs) {
+	public SortableNode(Node node, int h) {
 		super(node.getState(), node.getDepth(), node.getParent());
-		this.costs = costs;
+		this.totalCosts = node.getDepth() + h;
 	}
 
-	@Override
-	public int compareTo(SortableNode o) {
-		if (this.costs < o.costs) {
-			return -1;
-		} else if (this.costs == o.costs) {
-			return 0;
-		} else {
-			return 1;
-		}
+	
+	public int getCosts() {
+		return this.totalCosts;
 	}
+	
 
 	@Override
 	public int hashCode() {
-		return this.getState().hashCode();
+		return Objects.hash(this.getState());
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -34,7 +32,9 @@ public class SortableNode extends Node  implements Comparable<SortableNode> {
 		if (getClass() != obj.getClass())
 			return false;
 		SortableNode other = (SortableNode) obj;
-		return ((Node) other).getState().equals(this.getState());
+		return Objects.equals(this.getState(), other.getState());
 	}
+	
+	
 
 }
