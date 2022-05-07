@@ -38,7 +38,6 @@ public class AStar {
 	 */
 	public AStar(Puzzle puzzle, Heuristic heuristic) {
 		int startcosts = heuristic.getValue(puzzle.getInitNode().getState());
-
 		SortableNode initNode = new SortableNode(puzzle.getInitNode(), startcosts);
 
 		openList.add(initNode);

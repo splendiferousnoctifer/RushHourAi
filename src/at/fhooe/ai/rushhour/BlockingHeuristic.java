@@ -30,7 +30,7 @@ public class BlockingHeuristic implements Heuristic {
     if(state.isGoal()) {
     	return 0;
     }
-    int blocking = 0;
+    int blocking = 1;
     for(int i = 1; i < this.numCars; i++) {
     	if(!this.puzzle.getCarOrient(i)) {
     		continue;
@@ -40,7 +40,7 @@ public class BlockingHeuristic implements Heuristic {
     	if(this.puzzle.getFixedPosition(i) < ourEnd) {
     		continue;
     	}
-    	if(state.getVariablePosition(i)+this.puzzle.getCarSize(i) >= this.carPosition && state.getVariablePosition(i) <= this.carPosition) {
+    	if(state.getVariablePosition(i)+this.puzzle.getCarSize(i) > this.carPosition && state.getVariablePosition(i) <= this.carPosition) {
     		blocking++;
     	}
     }
