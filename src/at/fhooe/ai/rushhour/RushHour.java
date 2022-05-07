@@ -32,14 +32,14 @@ public class RushHour {
     int[][] soln_depth = null;
 
     // run each heuristic on each puzzle
-    for (int i = 37; i < num_puzzles; i++) {
+    for (int i = 0; i < num_puzzles; i++) {
       System.out.println("=================================================");
       System.out.println("puzzle = " + puzzles[i].getName());
 
       Heuristic[] heuristics = { // these are the heuristics to be used
-    		   new AdvancedHeuristic(puzzles[i])};
+    		   new ZeroHeuristic(puzzles[i]), new AdvancedHeuristic(puzzles[i]), new DistanceHeuristic(puzzles[i]), new AdvancedHeuristic(puzzles[i])};
 
-      if (i == 37) {
+      if (i == 0) {
         num_heuristics = heuristics.length;
         num_expanded = new int[num_puzzles][num_heuristics];
         soln_depth = new int[num_puzzles][num_heuristics];
