@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * interface. After thinking of an original heuristic, you should implement it
  * here, filling in the constructor and the <tt>getValue</tt> method.
  */
-public class AdvancedHeuristic implements Heuristic {
+public class AdvancedHeuristicDistance implements Heuristic {
 	int numCars;
 	int carSize;
 	int carPosition;
@@ -20,7 +20,7 @@ public class AdvancedHeuristic implements Heuristic {
 	/**
 	 * This is the required constructor, which must be of the given form.
 	 */
-	public AdvancedHeuristic(Puzzle puzzle) {
+	public AdvancedHeuristicDistance(Puzzle puzzle) {
 		this.puzzle = puzzle;
 		this.carSize = puzzle.getCarSize(0);
 		this.carPosition = puzzle.getFixedPosition(0);
@@ -36,6 +36,8 @@ public class AdvancedHeuristic implements Heuristic {
 		if (state.isGoal()) {
 			return 0;
 		}
+		int ourEnd = this.variablePosition = state.getVariablePosition(0) + carSize; 
+		int distance = 6 - ourEnd;
 		int blockingCount = 0;
 		blockingCars.add(0);
 		for (int car : getinitBlockingCars(0, state)) {
@@ -44,7 +46,7 @@ public class AdvancedHeuristic implements Heuristic {
 					this.getMoveSpace(0, car, 0, state, false), state);
 			blockingCount++;
 		}
-		return blockingCount;
+		return blockingCount + distance;
 	}
 
 	private int getAllBlockingCars(int car, int moveSpaceFront, int moveSpaceBack, State state) {
