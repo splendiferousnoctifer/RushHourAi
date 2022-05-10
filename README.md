@@ -50,8 +50,8 @@ In the following table the results for all five heuristics can be seen (Zero - B
 We accomplished and admissible heuristic with our Advanced Heuristic which performs considerable better than the blocking heuristic.
 When running the project it can clearly be seen, that the more difficult the puzzle gets, the longer it takes the algorithm to find a possible solution because many recursive calls are needed for all possible states of the puzzle. In this matter the blocking heuristic is the one which obviously performs better.
 
-|           |         Zero  |      |     |    Blocking   |     |     |    Distance     |    |    |    Advanced   |         |    AdvancedDistance |    |      | 
-|-----------|:--------------| -----|----|---------------| ----|----|-----------------|------|---| ------------| --------|------------------------| ---| ------------|
+|           |         Zero  |      |     |    Blocking   |     |     |    Distance     |    |    |    Advanced   |    |     |    AdvancedDistance |    |      | 
+|-----------|:--------------| -----|----|---------------| ----|----|-----------------|------|---| ------------| ----|----|------------------------| ---| ------------|
 |*name*     |    **nodes** | **dpth** |**br.fac** |    **nodes** | **dpth** | **br.fac** |   **nodes** | **dpth** | **br.fac** |    **nodes** | **dpth** |**br.fac** |    **nodes** | **dpth** |**br.fac** |
 |Jam-1      |    11589 |   8 |  3,066 |     6829  |  8  | 2,857 |     9561  |  9 |  2,625 |      991  |  8 |  2,196 |      959 |   8 |  2,186|
 |Jam-2      |    24081 |   8 |  3,378 |     4044  |  8  | 2,663 |    11407  |  9 |  2,681 |     2643  |  9 |  2,248 |     1570 |   8 |  2,340|
