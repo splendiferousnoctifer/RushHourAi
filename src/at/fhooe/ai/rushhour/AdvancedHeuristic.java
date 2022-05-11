@@ -36,13 +36,12 @@ public class AdvancedHeuristic implements Heuristic {
 		if (state.isGoal()) {
 			return 0;
 		}
-		int blockingCount = 0;
+		int blockingCount = 1;
 		blockingCars.add(0);
 		for (int car : getinitBlockingCars(0, state)) {
 
 			blockingCount += this.getAllBlockingCars(car, this.getMoveSpace(0, car, 0, state, true),
 					this.getMoveSpace(0, car, 0, state, false), state);
-			blockingCount++;
 		}
 		return blockingCount;
 	}
